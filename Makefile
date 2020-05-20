@@ -1,6 +1,4 @@
 NAME=udemy-ml-api-jnunezf
-#COMMIT_ID=$(shell git rev-parse HEAD)
-
 
 build-ml-api-heroku:
 	docker build --build-arg PIP_EXTRA_INDEX_URL=https://vLLBomrokHMzWUCXyxdj@pypi.fury.io/jnunezf -t registry.heroku.com/udemy-ml-api-jnunezf/web .

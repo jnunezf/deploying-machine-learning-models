@@ -128,6 +128,7 @@ jobs:
       - run:
           name: Build and Push Image
           command: |
+            docker logs udemy-ml-api-jnunezf
             make build-ml-api-heroku push-ml-api-heroku
       - run:
           name: Release to Heroku
