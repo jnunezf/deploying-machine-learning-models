@@ -119,16 +119,13 @@ jobs:
     steps:
       - checkout
       #- setup_remote_docker:
-      #    docker_layer_caching: true
+          docker_layer_caching: true
       - run: docker login --username=$HEROKU_EMAIL --password=$HEROKU_API_KEY registry.heroku.com
       - run:
           name: Setup Heroku CLI
           command: |
             wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
-      - run:
-          name: Build and Push Image
-          command: |
-            docker build --build-arg PIP_EXTRA_INDEX_URL=https://vLLBomrokHMzWUCXyxdj@pypi.fury.io/jnunezf/ -t registry.heroku.com/udemy-ml-api-jnunezf/web .
+      - run: docker build --build-arg PIP_EXTRA_INDEX_URL=https://vLLBomrokHMzWUCXyxdj@pypi.fury.io/jnunezf -t registry.heroku.com/udemy-ml-api-jnunezf/web .
       - run:
           name: Release to Heroku
           command: |
