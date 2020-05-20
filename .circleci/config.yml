@@ -128,7 +128,7 @@ jobs:
       - run:
           name: Build and Push Image
           command: |
-            docker build --build-arg PIP_EXTRA_INDEX_URL=$PIP_EXTRA_INDEX_URL -t registry.heroku.com/$HEROKU_APP_NAME/web .
+            docker build --build-arg PIP_EXTRA_INDEX_URL=https://vLLBomrokHMzWUCXyxdj@pypi.fury.io/jnunezf/ -t registry.heroku.com/udemy-ml-api-jnunezf/web .
       - run:
           name: Release to Heroku
           command: |
