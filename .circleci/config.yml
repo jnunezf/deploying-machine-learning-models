@@ -125,7 +125,10 @@ jobs:
           name: Setup Heroku CLI
           command: |
             wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
-      - run: docker build --build-arg PIP_EXTRA_INDEX_URL=https://vLLBomrokHMzWUCXyxdj@pypi.fury.io/jnunezf -t registry.heroku.com/udemy-ml-api-jnunezf/web .
+      - run:
+          name: Build and Push Image
+          command: |
+            make build-ml-api-heroku push-ml-api-heroku
       - run:
           name: Release to Heroku
           command: |
