@@ -128,9 +128,7 @@ jobs:
       - run:
           name: Build and Push Image
           command: |
-            echo ${PIP_EXTRA_INDEX_URL}
-            echo $(NAME)
-            make build-ml-api-heroku push-ml-api-heroku
+            docker build --build-arg PIP_EXTRA_INDEX_URL=$PIP_EXTRA_INDEX_URL -t registry.heroku.com/$HEROKU_APP_NAME/web .
       - run:
           name: Release to Heroku
           command: |
